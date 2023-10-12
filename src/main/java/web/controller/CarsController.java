@@ -20,13 +20,9 @@ public class CarsController {
         this.carServiceIpm = carServiceIpm;
     }
 @GetMapping()
-    public String cars(@RequestParam(value = "count", defaultValue = "0") int count, Model model) {
+    public String cars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
 
-    if (count != 0) {
         model.addAttribute("cars", carServiceIpm.showCars(count));
-    } else {
-        model.addAttribute("cars",carServiceIpm.carsList());
-    }
 
     return "all-cars";
     }
